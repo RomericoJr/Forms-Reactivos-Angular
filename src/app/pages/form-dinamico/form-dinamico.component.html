@@ -1,0 +1,58 @@
+<div class=" container-fluid">
+  <h1>Formulario reactivo</h1>
+
+  <div class=" container" align="center">
+    {{listaOrden | json }}
+  </div>
+  <hr>
+
+  <form
+    (ngSubmit)="guardar(formDinamico)"
+  [formGroup]="formDinamico" action="" style="margin: auto; width: 520px;" align="center">
+
+    <div class="mb-3">
+      <label for="nombre"> Orden</label>
+      <input type="text" class="form-control" required name="nombre" formControlName="orden" placeholder="Hamburguesa" id="">
+    <!-- <small *ngIf="formDinamico.controls?. ['nombre']">El nombre de a orden es obligatorio</small> -->
+    </div>
+
+    <!-- <h2 *ngIf="this.listaOrden.toppings.length < 1"> topping Vacio</h2> -->
+
+    <div class="mb-3">
+      <label for=""> ingrediente</label>
+      <div class="input-group mb-3">
+        <input type="text"
+        class="form-control"
+        name="newToping"
+        placeholder="Recipient's username"
+        aria-label="Recipient's username"
+        aria-describedby="button-addon2"
+        [formControl]="nuevoToping">
+
+        <button (click)="agregar()" class="btn btn-outline-secondary" type="button" id="button-addon2">agregar</button>
+      </div>
+    </div>
+
+<div formArrayName="toppings" >
+  <div *ngFor="let t of arrayToppings.controls ; let i = index" class="mb-3">
+    <label for=""> </label>
+    <div class="input-group mb-3">
+      <input [formControlName]="i" name="toping_ {{i}}" type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-addon2">
+      <button (click)="eliminar(i)" class="btn btn-outline-secondary" type="button" id="button-addon2">Eliminar</button>
+    </div>
+  </div>
+</div>
+    <h2 *ngIf="bool"> No hay topics</h2>
+    <br>
+
+    <button type="submit" class="btn btn-primary">Guardar</button>
+
+    </form>
+
+  <!-- <form [formGroup]="checkoutForm"> -->
+  <!-- <form >
+
+    <button class="button" type="submit">Purchase</button>
+
+  </form> -->
+</div>

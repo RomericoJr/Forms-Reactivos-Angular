@@ -1,0 +1,65 @@
+<div class="container-fluid">
+
+  <div class="container" align="center">
+    <form
+    #formCarro="ngForm"
+    (ngSubmit)="agregar(formCarro)">
+
+      <!-- <small *ngIf="formDinamic.controls?. ['nombre']">El nombre de a orden es obligatorio</small> -->
+      <div class="mb-3">
+        <label for="Marca"> Nombre</label>
+        <input type="text" class="form-control" required name="nombre" [(ngModel)]="listaAuto.nombre" placeholder="Hamburguesa" id="">
+        <small *ngIf="formCarro.controls['nombre']?.touched && formCarro.controls['nombre'].value.length <1" class="bold text-danger">* Campo requerido</small>
+      </div>
+
+      <div class="mb-3">
+        <label for="nombre"> Marca</label>
+        <input type="text" class="form-control" required name="marca" [(ngModel)]="listaAuto.marca" placeholder="Hamburguesa" id="">
+        <small *ngIf="formCarro.controls['marca']?.touched && formCarro.controls['marca'].value.length <1" class="bold text-danger">* Campo requerido</small>
+      </div>
+
+      <div class="mb-3">
+        <label for="modelo"> Modelo</label>
+        <input type="text" class="form-control" required name="modelo" [(ngModel)]="listaAuto.modelo" placeholder="Hamburguesa" id="">
+        <small *ngIf="formCarro.controls['modelo']?.touched && formCarro.controls['modelo'].value.length <1" class="bold text-danger">* Campo requerido</small>
+      </div>
+
+      <div class="mb-3">
+        <label for="modelo"> color</label>
+        <select class="form-select"  name="color" [(ngModel)]="listaAuto.color" id="">
+          <option *ngFor="let c of arrayColores ; let i = index">{{arrayColores[i]}}</option>
+        </select>
+      </div>
+      <!-- <input type="text" class="form-control" required name="color" [(ngModel)]="listaAuto.color" placeholder="Hamburguesa" id=""> -->
+
+      <div class="mb-3">
+        <label for="modelo"> Numero de serie</label>
+        <input type="text" class="form-control" required name="numeroDeSerie" [(ngModel)]="listaAuto.numeroDeSerie" placeholder="Hamburguesa" id="">
+        <small
+        class="bold text-danger"
+        *ngIf="formCarro.controls['numeroDeSerie']?.touched && formCarro.controls['numeroDeSerie'].value.length  != 12  ">solo 12 numeros</small>
+      </div>
+
+      <div class="mb-3">
+        <label for=""> Problemas del auto</label>
+        <div class="input-group mb-3">
+          <input type="text" [(ngModel)]="newProblem" class="form-control" name="nuevoToping" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-addon2">
+          <button (click)="agregarP()" class="btn btn-outline-secondary" type="button" id="button-addon2">agregar</button>
+        </div>
+      </div>
+
+      <div *ngFor="let t of listaAuto.problemas ; let i = index" class="mb-3">
+        <label for=""> </label>
+        <div class="input-group mb-3">
+          <input [(ngModel)]="t.descripcion" name="toping_ {{i}}" type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-addon2">
+          <button (click)="eliminar(i)" class="btn btn-outline-secondary" type="button" id="button-addon2">Eliminar</button>
+        </div>
+      </div>
+      <br>
+
+    <button type="submit" class="btn btn-primary">Guardar</button>
+      <br>
+
+    </form>
+  </div>
+</div>

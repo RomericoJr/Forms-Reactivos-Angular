@@ -1,0 +1,200 @@
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-4">
+      <h2>Formulario Switches</h2>
+      <br>
+      <h5>Valor del formulario</h5>
+      <pre>{{miFormulario.value |json}}</pre>
+      <br>
+      <h5>Cliente</h5>
+      <pre>{{cliente | json}}</pre>
+      <br>
+      <h5>Valid</h5>
+      <pre>{{miFormulario.valid}}</pre>
+      <h5>Terminos</h5>
+      <pre>{{miFormulario?.controls?.['terminos']?.errors | json}}</pre>
+  </div>
+  <div class="col-4">
+      <form #miFormulario="ngForm" (ngSubmit)="guardar(miFormulario)" class="formulario">
+      <div >
+
+      <!--*Genero*-->
+          <label class="col-sm-3 col-fore-label" ><b>Genero</b></label>
+      <div class="col-sm-9">
+      <div class="form-check">
+        <input class="form-check-input" type="radio" value="M" [(ngModel)]="cliente.genero" name="radioGenero" id="radioMasculino">
+        <label class="form-check-label" for="radioMasculino">
+          Masculino
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" value="F" [(ngModel)]="cliente.genero"name="radioGenero" id="radioFemenino">
+        <label class="form-check-label" for="radioFemenino">
+          Femenino
+        </label>
+      </div>
+      </div>
+      <br>
+      <!--*End nombre*-->
+
+            <!--*Bebida*-->
+            <label class="col-sm-3 col-fore-label" ><b>Bebida</b></label>
+            <div class="col-sm-9">
+            <div class="form-check">
+              <input class="form-check-input" type="radio" value="R" [(ngModel)]="cliente.bebida" name="radioBebida" id="radioRefresco">
+              <label class="form-check-label" for="radioRefresco">
+                Refresco
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" value="A" [(ngModel)]="cliente.bebida" name="radioBebida" id="radioAgua">
+              <label class="form-check-label" for="radioAgua">
+                Agua
+              </label>
+            </div>
+            </div>
+            <br>
+            <!--*End Bebida*-->
+
+
+      <!--*Mascota*-->
+      <label class="col-sm-3 col-fore-label" ><b>Mascota</b></label>
+      <div class="col-sm-9">
+      <div class="form-check">
+        <input class="form-check-input" type="radio" value="P" [(ngModel)]="cliente.mascota" name="radioMascota" id="radioPerro">
+        <label class="form-check-label" for="radioPerro">
+          Perro
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" value="G"  [(ngModel)]="cliente.mascota" name="radioMascota" id="radioGato">
+        <label class="form-check-label" for="radioGato">
+          Gato
+        </label>
+      </div>
+      </div>
+      <br>
+      <!--*End Mascota*-->
+
+      <!--*color*-->
+      <label class="col-sm-3 col-fore-label" ><b>Color</b></label>
+      <div class="col-sm-9">
+      <div class="form-check">
+        <input class="form-check-input" type="radio" value="A" [(ngModel)]="cliente.color" name="radioColor" id="radioAzul">
+        <label class="form-check-label" for="radioAzul">
+          Azul
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" value="V" [(ngModel)]="cliente.color" name="radioColor" id="radioVerde">
+        <label class="form-check-label" for="radioVerde">
+          Verde
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" value="R" [(ngModel)]="cliente.color" name="radioColor" id="radioRojo">
+        <label class="form-check-label" for="radioRojo">
+          Rojo
+        </label>
+      </div>
+      </div>
+      <br>
+      <!--*End color*-->
+
+
+      <!--*Postre*-->
+      <label class="col-sm-3 col-fore-label" ><b>Postre</b></label>
+      <div class="col-sm-9">
+      <div class="form-check">
+        <input class="form-check-input" type="radio" value="N" [(ngModel)]="cliente.postre" name="radioPostre" id="radioNormal">
+        <label class="form-check-label" for="radioNormal">
+          Normal
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" value="F"  [(ngModel)]="cliente.postre" name="radioPostre"id="radioFrio">
+        <label class="form-check-label" for="radioFrio">
+          Frio
+        </label>
+      </div>
+      </div>
+      <br>
+      <!--*End postre*-->
+
+      <!--*calzado*-->
+      <label class="col-sm-3 col-fore-label" ><b>Calzado</b></label>
+      <div class="col-sm-9">
+      <div class="form-check">
+        <input class="form-check-input" type="radio" value="Z" [(ngModel)]="cliente.calzado" name="radioCalzado" id="radioZapato">
+        <label class="form-check-label" for="radioZapato">
+          Zapatos
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" value="T" [(ngModel)]="cliente.calzado" name="radioCalzado" id="radioTenis">
+        <label class="form-check-label" for="radioTenis">
+          Tenis
+        </label>
+      </div>
+      </div>
+      <br>
+      <!--*End calzado*-->
+
+
+      <!--*Lenguajes*-->
+      <label class="col-sm-3 col-fore-label" ><b>Lenguajes de programación</b></label>
+      <br>
+      <div class="col-sm-9">
+
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" id="inlineCheckbox1" [(ngModel)]="cliente.lenguajes.java" name="lenguajes">
+          <label class="form-check-label" for="inlineCheckbox1">java</label>
+        </div>
+        <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" id="inlineCheckbox2"[(ngModel)]="cliente.lenguajes.php" name="lenguajes">
+        <label class="form-check-label" for="inlineCheckbox2">Php</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" id="inlineCheckbox3"[(ngModel)]="cliente.lenguajes.python" name="lenguajes" >
+        <label class="form-check-label" for="inlineCheckbox3">python</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" id="inlineCheckbox4" [(ngModel)]="cliente.lenguajes.javascript" name="lenguajes">
+        <label class="form-check-label" for="inlineCheckbox4">javascript</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" id="inlineCheckbox5" [(ngModel)]="cliente.lenguajes.ruby" name="lenguajes">
+        <label class="form-check-label" for="inlineCheckbox5">Rubi</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" id="inlineCheckbox6" [(ngModel)]="cliente.lenguajes.c" name="lenguajes">
+        <label class="form-check-label" for="inlineCheckbox6">C</label>
+      </div>
+    </div>
+      <!--*End lenguajes*-->
+
+      <!--*footer*-->
+      <div class="form-check form-switch mt-2">
+        <input class="form-check-input" type="checkbox" [(ngModel)]="cliente.promociones" id="flexSwitchCheckChecked">
+        <label class="form-check-label" for="flexSwitchCheckChecked">
+          Quiero recibir promociones
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" name="terminos" [(ngModel)]="terminosYCondiciones" id="flexCheckDefault" required>
+        <label class="form-check-label" for="">
+          Acepta los terminos y condiciones
+        </label>
+      </div>
+
+  </div>
+  <br>
+  <div>
+      <button [disabled]="miFormulario.invalid" type="submit" class="btn btn-primary">Agregar</button>
+  </div>
+    </form>
+  </div>
+
+  </div>
+</div>
+

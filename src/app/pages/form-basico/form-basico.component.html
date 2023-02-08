@@ -1,0 +1,118 @@
+<!-- <p>form-basico works!</p> -->
+
+<div class="formulario" align="center">
+  <form autocomplete="off" (ngSubmit)="guardarProducto(myform)"
+    style="margin: auto; width: 520px;"  #myform="ngForm">
+
+    <!--Dirty, pristine-->
+    <hr>
+
+    <h5>Formulario siend rellenado</h5>
+    <span class="text-danger">{{myform.value | json}}</span>
+
+    <h5>Estado de formulario : <span class="text-danger">{{myform.valid}}</span></h5>
+
+    <h5>Se ha rellenado el formulario: <span class="text-danger">{{myform.dirty}}</span> </h5>
+
+    <!--SI se ha escrito algo .-->
+    <h5>Ser ha tocado el formulario: <span class="text-danger">{{myform.touched}}</span> </h5>
+
+    <h3>Agregar producto</h3>
+
+
+      <div class="mb-3">
+          <label for="nombreProducto" class="form-label">Nombre </label>
+          <input type="text" name="nombreProducto" id="" class="form-control"  ngModel required placeholder="Nombre" >
+          <!-- *ngIf="myform.value.nombreProducto.length > 4" -->
+          <!-- *ngIf="myform.controls.['nombreProducto']?.invalid" -->
+
+          <!-- *ngIf="myform.controls['nombreProducto']?.invalid && myform.controls['nombreProducto']?.touched" -->
+          <small
+          *ngIf="nombreValido()"
+          class=" bold text-danger">Escribe al menos 5 caracteres </small>
+
+      </div>
+
+      <div class="mb-3">
+        <label for="categoria" class="form-label">Categoria </label>
+        <input type="text" name="categoria" id="" class="form-control" ngModel required placeholder="Categoria" >
+    </div>
+    <div class="mb-3">
+      <label for="descripcion" class="form-label">Descripción</label>
+      <input type="text" name="descripcion" id="" class="form-control" ngModel required placeholder="Descripción" >
+      <small
+          *ngIf="descripcionValido()"
+          class=" bold text-danger">Maximo 200 caracteres</small>
+  </div>
+
+
+  <div class="container text-center mb-3">
+    <div class="row">
+      <!--Input para precio-->
+      <div class="col">
+        <div >
+          <label for="precio" class="form-label">precio</label>
+          <input type="number" min="0" name="precio" id="" class="form-control" ngModel required placeholder="precio" >
+
+          <small
+          *ngIf="precioValido()"
+          class=" bold text-danger">El precio debe de ser mayor a 0</small>
+      </div>
+      </div>
+
+      <!--Input para stock-->
+      <div class="col">
+        <div >
+          <label for="stock" class="form-label">Stock</label>
+          <input type="number" name="stock" id="" class="form-control" ngModel required placeholder="stock" >
+
+          <small
+          *ngIf="stockValido()"
+          class=" bold text-danger">Debe ser mas de 1 pero menor o igual a 1000</small>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container text-center">
+    <div class="row">
+      <!--Input para la marca-->
+      <div class="col">
+        <div >
+          <label for="categoria" class="form-label">Categoria</label>
+
+          <select class="form-select" name="categoria" id="plan" required ngModel>
+            <option value="free">Free</option>
+            <option value="starter" selected>Starter </option>
+            <option value="professional">Professional</option>
+            <option value="corporate">Corporate</option>
+        </select>
+          <!-- <input type="text" name="nameLey" id="" class="form-control" placeholder="Nombre" > -->
+        </div>
+      </div>
+      <!--Input para la categoria-->
+      <div class="col">
+        <div >
+          <label for="marca" class="form-label">Marca</label>
+          <select class="form-select" name="marca" id="" ngModel required>
+            <option value="free">Free</option>
+            <option value="starter" selected>Starter </option>
+            <option value="professional">Professional</option>
+            <option value="corporate">Corporate</option>
+        </select>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<div class="mb-3">
+  <label for="imagenUrl" class="form-label">Imagen URL</label>
+  <input type="text" name="imagenUrl" id="" class="form-control" ngModel placeholder="Imagen Url" >
+</div>
+
+      <button [disabled]="myform.invalid" type="submit" class="btn btn-dark -sm mt-4">Guardar</button>
+
+  </form>
+</div>
+<br>
