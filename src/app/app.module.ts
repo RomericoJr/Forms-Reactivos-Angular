@@ -9,10 +9,12 @@ import { PagesModule } from './pages/pages.module';
 import { HeaderModule } from './header/header.module';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { Examen1Component } from './examen1/examen1.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    Examen1Component,
 
   ],
   imports: [

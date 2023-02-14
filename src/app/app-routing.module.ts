@@ -7,6 +7,7 @@ import { SwitchesComponent } from './pages/switches/switches.component';
 import { ReacAutoComponent } from './pages/reactiveForms/reac-auto/reac-auto.component';
 import { ReacBasicoComponent } from './pages/reactiveForms/reac-basico/reac-basico.component';
 import { ReacDinamicoComponent } from './pages/reactiveForms/reac-dinamico/reac-dinamico.component';
+import { RegisterComponent } from './pages/Auth/register/register.component';
 
 const routes: Routes = [
   {
@@ -42,6 +43,10 @@ const routes: Routes = [
   {
     path: 'form3',
     component:ReacDinamicoComponent
+  },
+  {
+    path: 'register',
+    component:RegisterComponent
   }
 ];
 

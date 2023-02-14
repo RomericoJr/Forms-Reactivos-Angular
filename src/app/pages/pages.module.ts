@@ -10,6 +10,7 @@ import { SwitchesComponent } from './switches/switches.component';
 import { ReacAutoComponent } from './reactiveForms/reac-auto/reac-auto.component';
 import { ReacBasicoComponent } from './reactiveForms/reac-basico/reac-basico.component';
 import { ReacDinamicoComponent } from './reactiveForms/reac-dinamico/reac-dinamico.component';
+import { RegisterComponent } from './Auth/register/register.component';
 
 
 
@@ -21,7 +22,8 @@ import { ReacDinamicoComponent } from './reactiveForms/reac-dinamico/reac-dinami
     SwitchesComponent,
     ReacAutoComponent,
     ReacBasicoComponent,
-    ReacDinamicoComponent
+    ReacDinamicoComponent,
+    RegisterComponent
   ],
   imports: [
     CommonModule,
@@ -37,7 +39,9 @@ import { ReacDinamicoComponent } from './reactiveForms/reac-dinamico/reac-dinami
     SwitchesComponent,
     ReacAutoComponent,
     ReacBasicoComponent,
-    ReacDinamicoComponent
+    ReacDinamicoComponent,
+    RegisterComponent
+
   ]
 })
 export class PagesModule { }

@@ -1,0 +1,57 @@
+
+
+
+<div class="m-5 p-2">
+  <form (submit)="guardar()" [formGroup]="form" >
+
+    <div class="mb-3">
+      <label for="user" class="form-label">Usuario </label>
+      <input formControlName="user" type="text" id="" class="form-control" placeholder="Usuario" >
+  </div>
+
+  <div class="mb-3">
+    <label for="apellidoP" class="form-label">Apellido paterno </label>
+    <input formControlName="apellidoP" type="text" id="" class="form-control" placeholder="Apellido Paterno" >
+  </div>
+
+  <div class="mb-3">
+    <label for="apellidoM" class="form-label">Apellido Materno </label>
+    <input formControlName="apellidoM" type="text" id="" class="form-control" placeholder="Apellido Materno" >
+  </div>
+
+  <div class="mb-3">
+    <label for="telefono" class="form-label">Telefono </label>
+    <input formControlName="telefono" type="text" id="" class="form-control" placeholder="Telefono" >
+  </div>
+
+  <div class="mb-3">
+    <label for="calle" class="form-label">calle </label>
+    <input formControlName="calle" type="text" id="" class="form-control" placeholder="Calle" >
+  </div>
+
+  <div *ngFor="let n of [1,1,1]">
+    hola
+  </div>
+  <div class="mb-3">
+    <label for="estado"> Estado</label>
+    <select class="form-select"  name="estado" formControlName="estado"  id="">
+      <option *ngFor="let c of arrayEstados ; let i = index">{{i}}</option>
+    </select>
+  </div>
+
+  <div class="mb-3">
+    <label for="numero" class="form-label">numero </label>
+    <input formControlName="numero" type="text" id="" class="form-control" placeholder="Numero" >
+  </div>
+
+  <!-- <div class="mb-3">
+    <label for="estado" class="form-label">estado </label>
+    <input formControlName="estado" type="text" id="" class="form-control" placeholder="Estado" >
+  </div> -->
+
+
+
+  <button [disabled]="form.invalid" type="submit" class="btn btn-primary">Guardar</button>
+  </form>
+
+</div>

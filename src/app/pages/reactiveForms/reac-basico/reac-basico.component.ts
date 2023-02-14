@@ -42,4 +42,6 @@ export class ReacBasicoComponent implements OnInit {
     this.form.reset();
 
   }
+
+
 }

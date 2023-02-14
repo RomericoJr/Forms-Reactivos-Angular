@@ -8,12 +8,12 @@
 
   <form
 
-  #formDinamic="ngForm" action="" style="margin: auto; width: 520px;" align="center">
+  [formGroup]="formDinamico" action="" style="margin: auto; width: 520px;" align="center">
 
     <div class="mb-3">
-      <label for="nombre"> Orden</label>
-      <input type="text" class="form-control" required name="nombre" placeholder="Hamburguesa" id="">
-    <small *ngIf="formDinamic.controls?. ['nombre']">El nombre de a orden es obligatorio</small>
+      <label for="orden"> Orden</label>
+      <input type="text" class="form-control" required formControlName="orden" name="" placeholder="Hamburguesa" id="">
+    <!-- <small *ngIf="formDinamic.controls?. ['nombre']">El nombre de a orden es obligatorio</small> -->
     </div>
 
     <!-- <h2 *ngIf="this.listaOrden.toppings.length < 1"> topping Vacio</h2> -->
@@ -21,22 +21,47 @@
     <div class="mb-3">
       <label for=""> ingrediente</label>
       <div class="input-group mb-3">
-        <input type="text"  class="form-control" name="nuevoToping" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-addon2">
-        <button  class="btn btn-outline-secondary" type="button" id="button-addon2">agregar</button>
+        <input type="text"  class="form-control" [formControl]="nuevoToping" name="nuevoToping" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-addon2">
+        <button  class="btn btn-outline-secondary" type="button" id="button-addon2" (click)="agregar()">agregar</button>
       </div>
     </div>
 
-    <div class="mb-3">
+
+    <div class="mb-3" formArrayName="toppings">
+      <label for="favoritos" class="form-label"> Lista Toppings
+
+      </label>
+
+      <div class="input-group mb-1"
+      *ngFor="let toping of arrayToppings.controls;
+              let i = index">
+
+      <input
+      [formControlName]="i"
+      type="text"
+      class=" form-control" id="" aria-describedby="">
+      <button class="btn btn-outline-danger" type="button"
+      (click)="eliminar(i)">Eliminar
+
+      </button>
+
+      </div>
+
+    </div>
+
+
+
+    <!-- <div class="mb-3">
       <label for=""> </label>
       <div class="input-group mb-3">
         <input  name="toping" type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-addon2">
-        <button class="btn btn-outline-secondary" type="button" id="button-addon2">Eliminar</button>
+        <button class="btn btn-outline-secondary" type="button" id="button-addon2" >Eliminar</button>
       </div>
-    </div>
+    </div> -->
     <!-- <h2 *ngIf="bool"> No hay topics</h2> -->
     <br>
 
-    <button type="submit" class="btn btn-primary">Guardar</button>
+    <button type="submit" (click)="guardarTodo()" [disabled]="formDinamico.invalid" class="btn btn-primary">Guardar</button>
 
     </form>
 
